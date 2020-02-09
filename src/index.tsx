@@ -1,12 +1,11 @@
 import React from 'react';
-import { render } from "react-dom";
-import { If, ElseIf } from './lib/If';
-import { Else } from './lib/If';
+import { render } from 'react-dom';
+import { Switch } from './lib/Switch/Switch';
+import { Case } from './lib/Switch/Case';
 
-const App = () => (
-  <div style={{ width: 640, margin: "15px auto" }}>
-    <h1>Hello React</h1>
-    <If condition={true}>
+const App = () => 
+    <div>
+            <If condition={true}>
       <div>
         True
       </div>
@@ -14,16 +13,17 @@ const App = () => (
         False
       </Else>
     </If>
-    <If condition={true}>
-      condition 1
-      <ElseIf condition={true}>
-        condition 2
-      </ElseIf>
-      <ElseIf condition={true}>
-        condition 3
-      </ElseIf>
-    </If>
-  </div>
-);
+        <Switch on={'a'}>
+            <Case when={'a'}>
+                Whatever nerd
+            </Case>
+            <Case when="b">
+                Whatever geek
+            </Case>
+            <Case when="c">
+                Whatever boomer
+            </Case>
+        </Switch>
+    </div>
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));

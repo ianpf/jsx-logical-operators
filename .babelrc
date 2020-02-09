@@ -1,1 +1,17 @@
-{ "presets": [["react-app", { "absoluteRuntime": false }]] }
+{
+    "presets": [
+        [
+            "react-app",
+            {
+                "absoluteRuntime": false
+            }
+        ],
+        [
+            "@babel/preset-typescript",
+            {
+                "isTSX": true,
+                "allExtensions": true
+            }
+        ]
+    ]
+}

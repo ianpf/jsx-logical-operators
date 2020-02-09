@@ -1,6 +1,6 @@
 {
   "name": "jsx-logical-operators",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "keywords": [
     "logical",
     "operators",
@@ -13,6 +13,11 @@
   ],
   "author": "Ian Fisher <ian.p.fisher@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianpf/jsx-logical-operators"
+  },
+  "homepage": "https://github.com/ianpf/jsx-logical-operators#readme",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -20,13 +25,17 @@
   ],
   "scripts": {
     "start": "react-scripts start",
+    "prepublish": "npm run build",
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+    "build": "rimraf dist && npm run build:types && npm run build:js",
+    "build:js": "BABEL_ENV=production babel src/lib --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "build:types": "tsc --emitDeclarationOnly"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
     "babel-preset-react-app": "^9.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
