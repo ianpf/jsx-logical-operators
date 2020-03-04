@@ -1,26 +1,37 @@
-import * as React from 'react';
-import { Many } from '../utility-types';
-import { groupChildren } from '../children-helpers';
+import React, { ReactChild, FunctionComponent } from 'react'
+import { Many } from '../utility-types'
+import { groupChildren, wrapChildren } from '../children-helpers'
+import { Else } from './Else'
+import { ElseIf } from './ElseIf'
+import { Then } from './Then'
 
 export interface IfProps {
-    condition: boolean;
-    children: Many<React.ReactChild>;
+  condition: boolean
+  children: Many<ReactChild>
+  simple?: boolean
 }
 
-export const If: React.SFC<IfProps> = ({condition, children}) => {
-    const childrenArray = (Array.isArray(children) ? children : [children]) as JSX.Element[];
-    const {standard, elseClauses, elseIfClauses} = groupChildren(childrenArray);
+export const If: FunctionComponent<IfProps> = ({ condition, children, simple }) => {
+  if (!simple) {
+    const [, thenClauses, elseClauses, elseIfClauses] = groupChildren(wrapChildren(children), Then, Else, ElseIf)
     if (condition) {
-        return <>{standard}</>;
+      return <>{thenClauses}</>
     }
     if (elseIfClauses) {
-        const elseIf = elseIfClauses.find(item => item.props.condition);
-        if (elseIf) {
-            return <>{elseIf}</>;
-        }
+      const elseIf = elseIfClauses.find(item => item.props.condition)
+      if (elseIf) {
+        return <>{elseIf}</>
+      }
     }
     if (elseClauses && elseClauses.length > 0) {
-        return <>{elseClauses[0]}</>;
+      return <>{elseClauses[0]}</>
     }
-    return <></>
+  } else if (condition) {
+    return <>{children}</>
+  }
+  return <></>
+}
+
+If.defaultProps = {
+  simple: false,
 }

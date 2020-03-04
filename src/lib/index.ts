@@ -1,1 +1,2 @@
-export * from './If';
+export * from './If'
+export * from './Switch'

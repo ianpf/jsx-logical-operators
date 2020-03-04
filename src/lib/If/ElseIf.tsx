@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Many } from "../utility-types";
+import React, {FunctionComponent} from 'react'
+import { Many } from '../utility-types'
 
 export interface ElseIfProps {
-    condition: boolean;
-    children: Many<React.ReactChild>;
+    condition: boolean
+    children?: Many<React.ReactChild>
 }
 
-export const ElseIf: React.SFC<ElseIfProps> = ({children}) => {
-    return <>{children}</>;
+export const ElseIf: FunctionComponent<ElseIfProps> = ({ children }) => {
+    return <>{children}</>
 }

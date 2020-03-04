@@ -1,1 +1,1 @@
-export type Many<T> = T | T[];
+export type Many<T> = T | T[]
