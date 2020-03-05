@@ -8,8 +8,6 @@ That being said, personally I find this kind of declarative logic to be much eas
 
 ### Simple
 
-This is the most efficient of the logical operators, the `simple` switch makes it more performant than the other types of operators.
-
 ```tsx
 <If simple condition={someCondition}>
   Show me if someCondition is true!
@@ -17,8 +15,6 @@ This is the most efficient of the logical operators, the `simple` switch makes i
 ```
 
 ### Complex
-
-This has more of performance impact, since it has to meaningfully parse the children array, however still shouldn't add noticeable rendering time.
 
 ```tsx
 <If condition={someCondition}>

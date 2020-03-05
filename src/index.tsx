@@ -32,13 +32,11 @@ const App = () => {
       <div>
         <label>
           someValue
-          <input value={someValue} onClick={someValueCb} />
+          <input value={someValue} onChange={someValueCb} />
         </label>
       </div>
       <div>
-        <If simple condition={someCondition}>
-          Show me if someCondition is true!
-        </If>
+        <If condition={someCondition}>Show me if someCondition is true!</If>
       </div>
       <div>
         <If condition={someCondition}>
@@ -68,12 +66,8 @@ const App = () => {
       </div>
       <div>
         <Switch on={someValue}>
-          <Case when={val => typeof val === 'string' && val?.startsWith('A')}>
-            Show me when the value starts with A!
-          </Case>
-          <Case when={val => typeof val === 'string' && val?.startsWith('B')}>
-            Show me when the value starts with B!
-          </Case>
+          <Case when={val => typeof val === 'string' && val?.match(/A/i)}>Show me when the value starts with A!</Case>
+          <Case when={val => typeof val === 'string' && val?.match(/B/i)}>Show me when the value starts with B!</Case>
         </Switch>
       </div>
       <div>
