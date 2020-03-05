@@ -9,7 +9,7 @@ That being said, personally I find this kind of declarative logic to be much eas
 ### Simple
 
 ```tsx
-<If simple condition={someCondition}>
+<If condition={someCondition}>
   Show me if someCondition is true!
 </If>
 ```
