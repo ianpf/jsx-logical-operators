@@ -1,10 +1,5 @@
-import React, { ReactChild, FunctionComponent } from 'react'
-import { Many } from '../utility-types'
+import React, { FunctionComponent } from 'react'
 
-export interface ElseProps {
-    children?: Many<ReactChild>
-}
-
-export const Else: FunctionComponent<ElseProps> = ({ children }) => {
-    return <>{children}</>
+export const Else: FunctionComponent = ({ children }) => {
+  return <>{children}</>
 }

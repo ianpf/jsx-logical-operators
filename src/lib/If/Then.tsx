@@ -1,8 +1,3 @@
-import React, { FunctionComponent, ReactChild } from 'react'
-import { Many } from '../utility-types'
+import React, { FunctionComponent } from 'react'
 
-interface ThenProps {
-  children?: Many<ReactChild>
-}
-
-export const Then: FunctionComponent<ThenProps> = ({ children }) => <>{children}</>
+export const Then: FunctionComponent = ({ children }) => <>{children}</>

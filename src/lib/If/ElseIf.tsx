@@ -1,11 +1,9 @@
-import React, {FunctionComponent} from 'react'
-import { Many } from '../utility-types'
+import React, { FunctionComponent } from 'react'
 
 export interface ElseIfProps {
-    condition: boolean
-    children?: Many<React.ReactChild>
+  condition: boolean
 }
 
 export const ElseIf: FunctionComponent<ElseIfProps> = ({ children }) => {
-    return <>{children}</>
+  return <>{children}</>
 }

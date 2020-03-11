@@ -1,5 +1,4 @@
-import React, { ReactChild, FunctionComponent } from 'react'
-import { Many } from '../utility-types'
+import React, { FunctionComponent } from 'react'
 import { groupChildren, wrapChildren } from '../children-helpers'
 import { Else } from './Else'
 import { ElseIf } from './ElseIf'
@@ -7,7 +6,6 @@ import { Then } from './Then'
 
 export interface IfProps {
   condition: boolean
-  children: Many<ReactChild>
 }
 
 export const If: FunctionComponent<IfProps> = ({ condition, children }) => {
