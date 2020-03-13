@@ -1,6 +1,6 @@
-import React, { FunctionComponent, ReactElement } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Many } from '../utility-types'
-import { CaseProps, Case } from './Case'
+import { Case } from './Case'
 import { groupChildren, wrapChildren } from '../children-helpers'
 import { Default } from './Default'
 
@@ -10,7 +10,7 @@ export interface SwitchProps {
    * If this is not provided, then the case statements will be tested for "truthiness" if values are provided, and will be executed if functions are provided,
    */
   on?: string | number | object
-  children: Many<ReactElement<CaseProps> | ReactElement<{}>>
+  children: Many<JSX.Element>
 }
 
 export const Switch: FunctionComponent<SwitchProps> = ({ children, on }) => {
