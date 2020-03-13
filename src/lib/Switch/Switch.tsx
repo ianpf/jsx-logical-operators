@@ -10,7 +10,7 @@ export interface SwitchProps {
    * If this is not provided, then the case statements will be tested for "truthiness" if values are provided, and will be executed if functions are provided,
    */
   on?: string | number | object
-  children?: Many<ReactElement<CaseProps>>
+  children: Many<ReactElement<CaseProps> | ReactElement<{}>>
 }
 
 export const Switch: FunctionComponent<SwitchProps> = ({ children, on }) => {

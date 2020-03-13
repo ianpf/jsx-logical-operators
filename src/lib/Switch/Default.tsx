@@ -1,10 +1,5 @@
-import React, { ReactChild, FunctionComponent } from 'react'
-import { Many } from '../utility-types'
+import React, { FunctionComponent } from 'react'
 
-export interface DefaultProps {
-    children: Many<ReactChild>
-}
-
-export const Default: FunctionComponent<DefaultProps> = ({ children }) => {
-    return <>{children}</>
+export const Default: FunctionComponent = ({ children }) => {
+  return <>{children}</>
 }
