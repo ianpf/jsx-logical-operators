@@ -11,7 +11,7 @@ export interface IfProps {
 export const If: FunctionComponent<IfProps> = ({ condition, children }) => {
   const [others, thenClauses, elseClauses, elseIfClauses] = groupChildren(wrapChildren(children), Then, Else, ElseIf)
   if (condition) {
-    return <>{thenClauses.length > 1 ? thenClauses[0] : others}</>
+    return <>{thenClauses.length >= 1 ? thenClauses[0] : others}</>
   }
   if (elseIfClauses) {
     const elseIf = elseIfClauses.find(item => item.props.condition)
