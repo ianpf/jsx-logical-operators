@@ -1,18 +1,3 @@
 {
-  "presets": [
-    [
-      "react-app",
-      {
-        "absoluteRuntime": false
-      }
-    ],
-    [
-      "@babel/preset-typescript",
-      {
-        "isTSX": true,
-        "allExtensions": true
-      }
-    ]
-  ],
-  "plugins": ["@babel/plugin-transform-modules-commonjs"]
+  "presets": ["@babel/env", "@babel/typescript", "@babel/react"]
 }
