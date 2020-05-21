@@ -6,7 +6,7 @@ const App = () => {
   const [someCondition, someConditionChange] = useState(true)
   const [someOtherCondition, someOtherConditionChange] = useState(false)
   const [someValue, someValueChange] = useState('')
-  const [promise, promiseChange] = useState(Promise.resolve('initial state'));
+  const [promise, promiseChange] = useState(Promise.resolve('initial state'))
   const someConditionCb = useCallback(
     (ev: SyntheticEvent<HTMLInputElement>) => someConditionChange(ev.currentTarget.checked),
     [],
@@ -15,8 +15,14 @@ const App = () => {
     (ev: SyntheticEvent<HTMLInputElement>) => someOtherConditionChange(ev.currentTarget.checked),
     [],
   )
-  const resolvePromiseCb = useCallback(() => promiseChange(new Promise((resolve) => setTimeout(() => resolve('resolved'), 3000))), []);
-  const rejectPromiseCb = useCallback(() => promiseChange(new Promise((_resolve, reject) => setTimeout(() => reject(new Error('rejected')), 3000))), []);
+  const resolvePromiseCb = useCallback(
+    () => promiseChange(new Promise(resolve => setTimeout(() => resolve('resolved'), 3000))),
+    [],
+  )
+  const rejectPromiseCb = useCallback(
+    () => promiseChange(new Promise((_resolve, reject) => setTimeout(() => reject(new Error('rejected')), 3000))),
+    [],
+  )
   const someValueCb = useCallback((ev: SyntheticEvent<HTMLInputElement>) => someValueChange(ev.currentTarget.value), [])
   return (
     <div>
@@ -79,20 +85,14 @@ const App = () => {
         </Switch>
       </div>
       <div>
-        <button onClick={resolvePromiseCb}>
-          Resolve after 3 seconds
-        </button>
-        <button onClick={rejectPromiseCb}>
-          Reject after 3 seconds
-        </button>
+        <button onClick={resolvePromiseCb}>Resolve after 3 seconds</button>
+        <button onClick={rejectPromiseCb}>Reject after 3 seconds</button>
         <Await
           on={promise}
           fallback={<span> Pending </span>}
-          error={(err) =>
-          <span> Rejected with: {err.message} </span>
-        }>{(result) =>
-          <span> Resolved with: {result} </span>
-        }
+          error={err => <span> Rejected with: {err.message} </span>}
+        >
+          {result => <span> Resolved with: {result} </span>}
         </Await>
       </div>
     </div>

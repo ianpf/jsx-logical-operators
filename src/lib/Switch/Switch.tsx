@@ -17,7 +17,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({ children, on }) => {
   const [, cases, defaults] = groupChildren(wrapChildren(children), Case, Default)
   return (
     cases.find(({ props: { when } }) => {
-      return (typeof when === 'function' && when(on)) || (on == null && when) || when === on
+      return (typeof when === 'function' && when(on)) || when === on
     }) ||
     defaults[0] || <></>
   )
