@@ -7,9 +7,9 @@ interface AwaitProps<T> {
   fallback?: ReactElement
 }
 
-interface Await extends FC {}
+interface Await<T> extends FC<AwaitProps<T>> {}
 
-export const Await: FC<AwaitProps<any>> = function<T>(props: AwaitProps<T>) {
+export function Await<T>(props: AwaitProps<T>) {
   const [{ error, result, resolution }, resolutionChange] = React.useState<{
     error?: any
     result?: T
