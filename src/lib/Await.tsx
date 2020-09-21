@@ -16,14 +16,17 @@ export function Await<T>(props: AwaitProps<T>) {
     resolution: 'pending' | 'resolved' | 'rejected'
   }>({ resolution: 'pending' })
   React.useEffect(() => {
+    let mounted = true;
     resolutionChange({ resolution: 'pending' })
     props.on
       .then(result => {
-        resolutionChange({ resolution: 'resolved', result })
+        if (mounted) resolutionChange({ resolution: 'resolved', result })
+      }, error => {
+        if (mounted) resolutionChange({ resolution: 'rejected', error })
       })
-      .catch(error => {
-        resolutionChange({ resolution: 'rejected', error })
-      })
+    return () => {
+      let mounted = false;
+    }
   }, [props.on])
   if (resolution === 'resolved') {
     return props.children(result!)
