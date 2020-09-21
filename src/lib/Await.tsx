@@ -25,7 +25,7 @@ export function Await<T>(props: AwaitProps<T>) {
         if (mounted) resolutionChange({ resolution: 'rejected', error })
       })
     return () => {
-      let mounted = false;
+      mounted = false;
     }
   }, [props.on])
   if (resolution === 'resolved') {
