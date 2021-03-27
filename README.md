@@ -1,6 +1,6 @@
 # jsx-logical-operators
 
-## This may be performance negative for an application, as it increases the size of the tree that needs to be diffed/rendered by React.
+## This may negatively impact performance for a react app, as it increases the size of the tree that needs to be diffed/rendered by React, and does not truncate the component tree below it in the same way as a ternary would.
 
 That being said, personally I find this kind of declarative logic to be much easier to read in React code than ternaries, or even in many cases separated functions.
 
