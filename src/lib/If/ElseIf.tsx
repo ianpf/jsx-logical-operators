@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, PropsWithChildren } from 'react'
 
-export interface ElseIfProps {
+export interface ElseIfProps extends PropsWithChildren {
   condition: boolean
 }
 

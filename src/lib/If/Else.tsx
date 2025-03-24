@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
-export const Else: FunctionComponent = ({ children }) => {
+export const Else: FC<PropsWithChildren> = ({ children }) => {
   return <>{children}</>
 }

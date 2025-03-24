@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, PropsWithChildren } from 'react'
 
-export interface CaseProps {
+export interface CaseProps extends PropsWithChildren {
   when: string | number | object | boolean | ((value?: string | object | number | null) => boolean)
 }
 

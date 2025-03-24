@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import { groupChildren, wrapChildren } from '../children-helpers'
 import { Else } from './Else'
 import { ElseIf } from './ElseIf'
 import { Then } from './Then'
 
-export interface IfProps {
+export interface IfProps extends PropsWithChildren {
   condition: boolean
 }
 
-export const If: FunctionComponent<IfProps> = ({ condition, children }) => {
+export const If: FC<IfProps> = ({ condition, children }) => {
   const [others, thenClauses, elseClauses, elseIfClauses] = groupChildren(wrapChildren(children), Then, Else, ElseIf)
   if (condition) {
     return <>{thenClauses.length >= 1 ? thenClauses[0] : others}</>

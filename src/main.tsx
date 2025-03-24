@@ -1,5 +1,5 @@
 import React, { useState, SyntheticEvent, useCallback } from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { If, Else, Switch, Case, Default, Then, ElseIf, Await } from './lib'
 
 const App = () => {
@@ -99,4 +99,4 @@ const App = () => {
   )
 }
 
-render(<App />, document.getElementById('root'))
+createRoot(document.getElementById('root')!).render(<App />)

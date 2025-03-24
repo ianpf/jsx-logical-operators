@@ -1,3 +1,3 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
-export const Then: FunctionComponent = ({ children }) => <>{children}</>
+export const Then: FC<PropsWithChildren> = ({ children }) => <>{children}</>

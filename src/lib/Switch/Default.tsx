@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
-export const Default: FunctionComponent = ({ children }) => {
+export const Default: FC<PropsWithChildren> = ({ children }) => {
   return <>{children}</>
 }

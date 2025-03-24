@@ -5,6 +5,7 @@ import {
   ComponentPropsWithRef,
   ReactNode,
   JSXElementConstructor,
+  JSX,
 } from 'react'
 
 export const wrapChildren = (children: ReactNode) => {
